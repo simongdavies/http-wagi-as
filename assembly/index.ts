@@ -9,9 +9,10 @@ let res = new RequestBuilder("https://postman-echo.com/post")
   .method(Method.POST)
   .body(body)
   .send();
-Console.log(`Content-Type: ${res.headerGet("Content-Type")}`);
 
-// Without \r on windows blank line is not produced by first console.log
+// Without \r on windows blank line is not produced by console.log
+
+Console.write(`Content-Type: ${res.headerGet("Content-Type")}\r\n`, false);
 
 Console.write("Status:200\n\r",false);
 Console.log("");
