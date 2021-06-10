@@ -10,11 +10,10 @@ let res = new RequestBuilder("https://postman-echo.com/post")
   .body(body)
   .send();
 
-// Without \r on windows blank line is not produced by console.log
+// Without \r on windows new line line is not produced by console.log
 
 Console.write(`Content-Type: ${res.headerGet("Content-Type")}\r\n`, false);
-
-Console.write("Status:200\n\r",false);
+Console.write("Status:200\r\n",false);
 Console.log("");
 let responseBody = res.bodyReadAll();
 let bodyval = String.UTF8.decode(responseBody.buffer,true);
