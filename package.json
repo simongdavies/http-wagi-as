@@ -12,10 +12,11 @@
   "author": "Simon Davies",
   "license": "MIT",
   "dependencies": {
-    "@assemblyscript/loader": "^0.18.29"
+    "@assemblyscript/loader": "^0.19.23",
+    "as-wasi": "^0.4.6"
   },
   "devDependencies": {
-    "as-wasi": "^0.4.4",
-    "assemblyscript": "^0.18.29"
+    "assemblyscript": "^0.19.23",
+    "as-wasi": "^0.4.6"
   }
 }

@@ -1,5 +1,5 @@
 import "wasi";
-import { Console, Environ, CommandLine, Process } from "as-wasi";
+import { Console } from "as-wasi";
 import { Method, RequestBuilder, Response } from "../wasi-experimental-http";
 
 let input = Console.readAll() as string;
@@ -10,13 +10,11 @@ let res = new RequestBuilder("https://postman-echo.com/post")
   .body(body)
   .send();
 
-// Without \r on windows new line line is not produced by console.log
-
-Console.write(`Content-Type: ${res.headerGet("Content-Type")}\r\n`, false);
-Console.write("Status:200\r\n",false);
-Console.log("");
+console.log(`Content-Type: ${res.headerGet("Content-Type")}`);
+console.log("Status:200");
+console.log("");
 let responseBody = res.bodyReadAll();
 let bodyval = String.UTF8.decode(responseBody.buffer,true);
-Console.log(bodyval);
+console.log(bodyval);
 res.close();
 
